@@ -18,9 +18,11 @@ public class Main4Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main4);
     }
     public void run(View v) {
+        long time, start, end;
         int n, p, q, k;
         EditText nInput;
         nInput = (EditText) findViewById(R.id.nubmerN);
+        start = System.nanoTime();
         if (nInput.getText().toString().equals("")) {
             hideKeyboard();
             showToast("Type in an odd number, please");
@@ -43,6 +45,9 @@ public class Main4Activity extends AppCompatActivity {
                 showToast("Try oce again with another number");
             }
         }
+        end = System.nanoTime();
+        time = end - start;
+        showToast("Time = " + time);
     }
     private void showToast(String text) {
         Toast.makeText(Main4Activity.this, text, Toast.LENGTH_SHORT).show();
